@@ -46,19 +46,23 @@ router.get("/:id/genres/:genre", async (req, res) => {
 });
 
 // Updating rating on a specific show
-router.put("/:id/watched", async (req, res) => {
-  const updateRating = await Show.update(
-    {
-      where: {
-        id: req.params.id,
+router.put(
+  "/:id/watched",
+  [check("rating").not().isEmpty().trim()],
+  async (req, res) => {
+    const updateRating = await Show.update(
+      {
+        where: {
+          id: req.params.id,
+        },
       },
-    },
-    {
-      rating: req.body.rating,
-    }
-  );
-  res.json(updateRating);
-});
+      {
+        rating: req.body.rating,
+      }
+    );
+    res.json(updateRating);
+  }
+);
 
 // updating the status of a certain show
 router.put("/:id", async (req, res) => {
