@@ -79,6 +79,8 @@ router.put("/:id", async (req, res) => {
   res.json(updateStatus);
 });
 
+// Deleting a show from the show model
+
 router.delete("/:id", async (req, res) => {
   const deletedShow = await Show.destroy({
     where: {
