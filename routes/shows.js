@@ -75,4 +75,13 @@ router.put("/:id", async (req, res) => {
   res.json(updateStatus);
 });
 
+router.delete("/:id", async (req, res) => {
+  const deletedShow = await Show.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.json(await Show.findAll()); //send back full list of books with the change
+});
+
 module.exports = router;
