@@ -1,0 +1,3 @@
+// const user = await User.findByPk(req.params.userId);
+  // const userShows = await Show.findAll();
+  // await user.addshow(userShows);

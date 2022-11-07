@@ -31,9 +31,11 @@ const seed = async () => {
   //   const user1 = await User.findByPk(1);
   //   const show1 = await Show.findByPk(1);
   //   await user1.addshow(show1);
+  // what is this for?
 
   console.log("Shows and User database info populated!");
 };
+
 seed();
 //export my seed function
 module.exports = seed;
