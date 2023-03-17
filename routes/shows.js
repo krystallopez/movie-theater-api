@@ -65,19 +65,23 @@ router.put(
 );
 
 // updating the status of a certain show
-router.put("/:id", async (req, res) => {
-  const updateStatus = await Show.update(
-    {
-      where: {
-        id: req.params.id,
+router.put(
+  "/:id",
+  [check("status").not().isEmpty().trim()],
+  async (req, res) => {
+    const updateStatus = await Show.update(
+      {
+        where: {
+          id: req.params.id,
+        },
       },
-    },
-    {
-      status: req.params.status,
-    }
-  );
-  res.json(updateStatus);
-});
+      {
+        status: req.params.status,
+      }
+    );
+    res.json(updateStatus);
+  }
+);
 
 // Deleting a show from the show model
 

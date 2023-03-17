@@ -5,7 +5,7 @@ const { seed } = require("./seed");
 const showRouter = require("./routes/shows");
 const userRouter = require("./routes/users");
 
-const port = 3000;
+const port = 3030;
 
 //include Middleware
 app.use(express.json());
